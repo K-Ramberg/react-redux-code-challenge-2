@@ -27,6 +27,7 @@ class HomePage extends Component {
 					</div>
 					<div>
 						Code for Homepage goes here!
+						
 					</div>
 				</div>
 			</React.Fragment>
