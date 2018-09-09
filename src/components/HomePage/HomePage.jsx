@@ -6,13 +6,22 @@ const propTypes = {
 	increment: PropTypes.func.isRequired,
 	decrement: PropTypes.func.isRequired,
 	resetNumberToZero: PropTypes.func.isRequired,
-	
+	addCompany: PropTypes.func.isRequired,
+	deleteCompany: PropTypes.func.isRequired,
+	clearDirectory: PropTypes.func.isRequired,
+	companies: PropTypes.array.isRequired,
+	companyToAdd: PropTypes.object.isRequired
 };
 
 class HomePage extends Component {
 	render() {
-		const {	increment, decrement, resetNumberToZero } = this.props;
+		const {	increment, decrement, resetNumberToZero, addCompany, deleteCompany, clearDirectory } = this.props;
 		console.log(this.props)
+		// const companyDirectory = this.props.companies.map((each)=>{
+		// 	return (
+		// 		<div>company placeholder</div>
+		// 	)
+		// })
 		return (
 			<React.Fragment>
 				<div className="home__wrapper">
@@ -26,10 +35,16 @@ class HomePage extends Component {
 						<button	onClick={resetNumberToZero}>
 							Reset Number
 						</button>
+						<button onClick={addCompany}>
+							add company
+						</button>
+						<button onClick={clearDirectory}>
+							reset directory test
+						</button>
 					</div>
 					<div>
 						Code for Homepage goes here!
-						
+						{/* {companyDirectory} */}
 					</div>
 				</div>
 			</React.Fragment>
