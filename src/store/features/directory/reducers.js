@@ -2,7 +2,7 @@ import types from './types';
 import { createDefaultReducer } from '../../helpers'
 
 const initialState = {
-  companies: [],
+  companies: ['22', '44', 'fake company'],
   companyToAdd: {}
 };
 
@@ -15,7 +15,7 @@ const addCompanyToDirectory = (state, payload) => {
 };
 
 const removeCompanyFromDirectory = (state, payload) => {
-  const companies = state.companies.pop()
+  const companies = state.companies.slice(0, state.companies.length-1)
   return {
     ...state,
     companies

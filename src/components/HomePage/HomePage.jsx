@@ -36,10 +36,13 @@ class HomePage extends Component {
 							Reset Number
 						</button>
 						<button onClick={addCompany}>
-							add company
+							add company test
 						</button>
 						<button onClick={clearDirectory}>
 							reset directory test
+						</button>
+						<button onClick={deleteCompany}>
+							remove last company test
 						</button>
 					</div>
 					<div>
