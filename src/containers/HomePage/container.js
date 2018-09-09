@@ -12,4 +12,8 @@ const mapDispatchToProps = dispatch => ({
 	clearDirectory: () => dispatch(actions1.clearDirectory())
 });
 
-export default connect(null, mapDispatchToProps)(HomePage);
+const mapStateToProps = state => ({
+	companies: state.directory.companies
+  });
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

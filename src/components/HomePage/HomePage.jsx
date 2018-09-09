@@ -6,11 +6,13 @@ const propTypes = {
 	increment: PropTypes.func.isRequired,
 	decrement: PropTypes.func.isRequired,
 	resetNumberToZero: PropTypes.func.isRequired,
+	
 };
 
 class HomePage extends Component {
 	render() {
 		const {	increment, decrement, resetNumberToZero } = this.props;
+		console.log(this.props)
 		return (
 			<React.Fragment>
 				<div className="home__wrapper">
