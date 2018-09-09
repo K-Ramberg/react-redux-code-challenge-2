@@ -17,11 +17,11 @@ class HomePage extends Component {
 	render() {
 		const {	increment, decrement, resetNumberToZero, addCompany, deleteCompany, clearDirectory } = this.props;
 		console.log(this.props)
-		// const companyDirectory = this.props.companies.map((each)=>{
-		// 	return (
-		// 		<div>company placeholder</div>
-		// 	)
-		// })
+		const companyDirectory = this.props.companies.map((each,i)=>{
+			return (
+				<div key={i}>company placeholder</div>
+			)
+		})
 		return (
 			<React.Fragment>
 				<div className="home__wrapper">
@@ -47,7 +47,7 @@ class HomePage extends Component {
 					</div>
 					<div>
 						Code for Homepage goes here!
-						{/* {companyDirectory} */}
+						{companyDirectory}
 					</div>
 				</div>
 			</React.Fragment>

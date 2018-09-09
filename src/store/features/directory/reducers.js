@@ -3,11 +3,12 @@ import { createDefaultReducer } from '../../helpers'
 
 const initialState = {
   companies: ['22', '44', 'fake company'],
-  companyToAdd: {}
+  companyToAdd: {name: 'i am a place holder'}
 };
 
 const addCompanyToDirectory = (state, payload) => {
-  const companies = state.companies.push(state.companyToAdd)
+  const companies = [...state.companies]
+   companies.push(state.companyToAdd)
   return {
     ...state,
     companies
