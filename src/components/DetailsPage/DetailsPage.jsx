@@ -8,7 +8,11 @@ const propTypes = {
 function DetailsPage(props) {
    const rightID = Number(props.match.params.id)
    const thisCompany = props.companies[rightID]
-   console.log(thisCompany)
+   const employees = thisCompany.employees.map((each,i)=> {
+     return (
+       <div key={i}>{each.name}</div>
+     )
+   })
   return (
     <div>Code for the Details Page goes here
       <h1>{thisCompany.name}</h1>
@@ -20,6 +24,7 @@ function DetailsPage(props) {
       <div>{thisCompany.phoneNumber}</div>
       <h4>Total Employees: </h4>
       <div>{thisCompany.employees.length}</div>
+      <div>{employees}</div>
     </div>
   );
 }
