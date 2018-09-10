@@ -10,7 +10,8 @@ const propTypes = {
 	addCompany: PropTypes.func.isRequired,
 	deleteCompany: PropTypes.func.isRequired,
 	clearDirectory: PropTypes.func.isRequired,
-	companies: PropTypes.array.isRequired
+	companies: PropTypes.array.isRequired,
+	addEmployee: PropTypes.func
 };
 
 class HomePage extends Component {
@@ -24,10 +25,17 @@ class HomePage extends Component {
 				revenue: '',
 				phoneNumber: '',
 				employees: []  
+			},
+			employeeToAdd: {
+				name: 'test',
+				address: 'tester',
+				employerIndex: 0
 			}
 		}
 		this.changeOfForm = this.changeOfForm.bind(this)
 		this.submitForm = this.submitForm.bind(this)
+		this.changeOfEmployeeForm = this.changeOfEmployeeForm.bind(this)
+		this.submitEmployee = this.submitEmployee.bind(this)
 	}	
 
 	changeOfForm(event) {
@@ -50,7 +58,25 @@ class HomePage extends Component {
 			employees: []  
 		 }})
 	}
+
+	changeOfEmployeeForm(event) {
+		const inputName = event.target.name
+        const formInput = event.target.value
+        const newState = {...this.state}
+        newState.employeeToAdd[inputName] = formInput
+        this.setState(newState)
+    }
 	
+	submitEmployee(event) {
+		event.preventDefault()
+		const newEmployee = {...this.state.employeeToAdd}
+		this.props.addEmployee(newEmployee)
+		this.setState({ employeeToAdd: {
+			name: '',
+			address: '',
+			employerIndex: 0  
+		 }})
+	}
 
 	render() {
 		const {	increment, decrement, resetNumberToZero, addCompany, deleteCompany, clearDirectory } = this.props;
@@ -88,6 +114,7 @@ class HomePage extends Component {
 							remove last company test
 						</button>
 					</div>
+					<button onClick={this.submitEmployee}> test employee</button>
 					<div>
 						Code for Homepage goes here!
 						{companyDirectory}
@@ -105,6 +132,17 @@ class HomePage extends Component {
 							<input type="text" name="phoneNumber" onChange={this.changeOfForm} value={this.state.companyToAdd.phoneNumber}/>	
 							<br/>
 							<button type="submit">Add Company</button>					
+						</form>
+						<form onSubmit={this.submitEmployee}>
+							<label>Company Name:</label>
+							<input type="text" name="name" onChange={this.changeOfEmployeeForm} value={this.state.employeeToAdd.name}/>
+							<br/>
+							<label>Address:</label>
+							<input type="text" name="address" onChange={this.changeOfEmployeeForm} value={this.state.employeeToAdd.address}/>
+							<br/>
+							<label>Choose Employer</label>
+							<br/>
+							<button type="submit">Add Employee</button>					
 						</form>
 					</div>
 				</div>

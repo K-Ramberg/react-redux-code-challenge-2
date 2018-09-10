@@ -29,10 +29,20 @@ const clearAllFromDirectory = (state, payload) => {
   }
 }
 
+const addEmployeeToCompany = (state, payload) => {
+  const companies = [...state.companies]
+    companies[payload.employerIndex].employees.push(payload)
+  return {
+    ...state,
+    companies
+  }
+}
+
 const actionMap = {
   [types.ADD_COMPANY]: addCompanyToDirectory,
   [types.DELETE_COMPANY]: removeCompanyFromDirectory,
-  [types.CLEAR_DIRECTORY]: clearAllFromDirectory
+  [types.CLEAR_DIRECTORY]: clearAllFromDirectory,
+  [types.ADD_EMPLOYEE]: addEmployeeToCompany
 };
 
 export default createDefaultReducer(actionMap, initialState)

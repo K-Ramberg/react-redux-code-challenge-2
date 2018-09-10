@@ -9,7 +9,8 @@ const mapDispatchToProps = dispatch => ({
 	resetNumberToZero: () => dispatch(actions.resetNumberToZero()),
 	addCompany: (payload) => dispatch(actions1.addCompany(payload)),
 	deleteCompany: () => dispatch(actions1.deleteCompany()),
-	clearDirectory: () => dispatch(actions1.clearDirectory())
+	clearDirectory: () => dispatch(actions1.clearDirectory()),
+	addEmployee: (payload) => dispatch(actions1.addEmployee(payload))
 });
 
 const mapStateToProps = state => ({

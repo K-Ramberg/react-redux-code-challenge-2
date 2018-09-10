@@ -19,8 +19,16 @@ function clearDirectory() {
     }
   }
 
+function addEmployee(payload) {
+  return {
+    type: types.ADD_EMPLOYEE,
+    payload
+  }
+}
+
 export default {
   addCompany,
   deleteCompany,
-  clearDirectory
+  clearDirectory,
+  addEmployee
 };
