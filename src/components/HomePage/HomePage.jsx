@@ -104,11 +104,11 @@ class HomePage extends Component {
 						{companyDirectory}
 						<div>
 							<button onClick={clearDirectory}>
-								reset directory test
+								Clear Directory
 							</button>
 							<br/>
 							<button onClick={deleteCompany}>
-								remove last company test
+								Undo Previous Company
 							</button>
 						</div>
 					</div>
@@ -128,7 +128,7 @@ class HomePage extends Component {
 								<label>Phone: </label>
 								<input type="text" name="phoneNumber" onChange={this.changeOfForm} value={this.state.companyToAdd.phoneNumber}/>	
 								<br/>
-								<button type="submit">Add Company</button>					
+								<button type="submit">Save</button>					
 							</form>
 						</div>
 						<div className="home__widget">
@@ -143,7 +143,7 @@ class HomePage extends Component {
 								<label>Choose Employer</label>
 								<select name="employerIndex" onChange={this.changeOfEmployeeForm}>{companyFormSelect}</select>
 								<br/>
-								<button type="submit">Add Employee</button>					
+								<button type="submit">Save</button>					
 							</form>
 						</div>
 					</div>
