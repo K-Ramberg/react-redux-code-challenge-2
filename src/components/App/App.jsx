@@ -31,6 +31,7 @@ class App extends Component {
           <Route exact path="/" component={HomePage} />
           <Route path="/details" component={DetailsPage} />
           <Route path="/number" component={NumberPage} />
+          <Route path="/:id" component={DetailsPage} />
         </React.Fragment>
       </Router>
     );

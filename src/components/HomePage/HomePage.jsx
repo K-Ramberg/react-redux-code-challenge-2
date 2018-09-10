@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom'
 import './styles.less';
 
 const propTypes = {
@@ -53,8 +54,6 @@ class HomePage extends Component {
 
 	render() {
 		const {	increment, decrement, resetNumberToZero, addCompany, deleteCompany, clearDirectory } = this.props;
-		 console.log(this.props)
-		// console.log(this.state)
 		const companyDirectory = this.props.companies.map((each,i)=>{
 			return (
 				<div key={i}> 
@@ -62,6 +61,7 @@ class HomePage extends Component {
 					<h5>Address: {each.address}</h5>
 					<h5>Revenue: {each.revenue}</h5>
 					<h5>Phone: {each.phoneNumber}</h5>
+					<Link to={`/${i}`}>See Details</Link>
 				</div>
 			)
 		})
