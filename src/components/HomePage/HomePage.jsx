@@ -9,8 +9,7 @@ const propTypes = {
 	addCompany: PropTypes.func.isRequired,
 	deleteCompany: PropTypes.func.isRequired,
 	clearDirectory: PropTypes.func.isRequired,
-	companies: PropTypes.array.isRequired,
-	companyToAdd: PropTypes.object.isRequired
+	companies: PropTypes.array.isRequired
 };
 
 class HomePage extends Component {

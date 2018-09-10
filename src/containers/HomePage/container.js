@@ -13,8 +13,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mapStateToProps = state => ({
-	companies: state.directory.companies,
-	companyToAdd: state.directory.companyToAdd
+	companies: state.directory.companies
   });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
