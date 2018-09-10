@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import HomePage from 'containers/HomePage';
 import DetailsPage from 'containers/DetailsPage';
-import NumberPage from 'containers/NumberPage';
 import './styles.less';
 
 class App extends Component {
@@ -19,14 +18,10 @@ class App extends Component {
                 <span className="app__nav-link">
                   <Link to="/">Home</Link>
                 </span>
-                <span className="app__nav-link">
-                  <Link to="/number">Number</Link>
-                </span>
               </div>
             </div>
           </div>
           <Route exact path="/" component={HomePage} />
-          <Route path="/number" component={NumberPage} />
           <Route path="/:id" component={DetailsPage} />
         </React.Fragment>
       </Router>
