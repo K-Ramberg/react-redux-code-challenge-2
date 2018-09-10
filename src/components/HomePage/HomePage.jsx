@@ -109,9 +109,6 @@ class HomePage extends Component {
 						<button	onClick={resetNumberToZero}>
 							Reset Number
 						</button>
-						<button onClick={() => addCompany(this.state.companyToAdd)}>
-							add company test
-						</button>
 						<button onClick={clearDirectory}>
 							reset directory test
 						</button>
@@ -119,9 +116,7 @@ class HomePage extends Component {
 							remove last company test
 						</button>
 					</div>
-					<button onClick={this.submitEmployee}> test employee</button>
 					<div>
-						Code for Homepage goes here!
 						{companyDirectory}
 						<form onSubmit={this.submitForm}>
 							<label>Company Name:</label>

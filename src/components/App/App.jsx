@@ -20,16 +20,12 @@ class App extends Component {
                   <Link to="/">Home</Link>
                 </span>
                 <span className="app__nav-link">
-                  <Link to="/details">Details</Link>
-                </span>
-                <span className="app__nav-link">
                   <Link to="/number">Number</Link>
                 </span>
               </div>
             </div>
           </div>
           <Route exact path="/" component={HomePage} />
-          <Route path="/details" component={DetailsPage} />
           <Route path="/number" component={NumberPage} />
           <Route path="/:id" component={DetailsPage} />
         </React.Fragment>
