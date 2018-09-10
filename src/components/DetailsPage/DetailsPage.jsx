@@ -5,14 +5,13 @@ const propTypes = {
 	companies: PropTypes.array.isRequired
 };
 
-function DetailsPage({ companies }) {
-  const companiesSpread = companies.map((each, i)=>{
-    return( <div key={i}>woot</div>)
-  })
-
+function DetailsPage(props) {
+   const rightID = Number(props.match.params.id)
+   const thisCompany = props.companies[rightID]
+   console.log(thisCompany)
   return (
     <div>Code for the Details Page goes here
-      {companiesSpread}
+      <h1>{thisCompany.name}</h1>
     </div>
   );
 }
