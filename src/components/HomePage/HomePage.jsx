@@ -27,8 +27,8 @@ class HomePage extends Component {
 				employees: []  
 			},
 			employeeToAdd: {
-				name: 'test',
-				address: 'tester',
+				name: '',
+				address: '',
 				employerIndex: 0
 			}
 		}
@@ -74,7 +74,7 @@ class HomePage extends Component {
 		this.setState({ employeeToAdd: {
 			name: '',
 			address: '',
-			employerIndex: 0  
+			employerIndex: this.state.employeeToAdd.employerIndex  
 		 }})
 	}
 
@@ -89,6 +89,11 @@ class HomePage extends Component {
 					<h5>Phone: {each.phoneNumber}</h5>
 					<Link to={`/${i}`}>See Details</Link>
 				</div>
+			)
+		})
+		const companyFormSelect = this.props.companies.map((each,i)=>{
+			return (
+				<option key={i} value={i}>{each.name}</option>
 			)
 		})
 		return (
@@ -134,13 +139,14 @@ class HomePage extends Component {
 							<button type="submit">Add Company</button>					
 						</form>
 						<form onSubmit={this.submitEmployee}>
-							<label>Company Name:</label>
+							<label>Employee Name:</label>
 							<input type="text" name="name" onChange={this.changeOfEmployeeForm} value={this.state.employeeToAdd.name}/>
 							<br/>
 							<label>Address:</label>
 							<input type="text" name="address" onChange={this.changeOfEmployeeForm} value={this.state.employeeToAdd.address}/>
 							<br/>
 							<label>Choose Employer</label>
+							<select name="employerIndex" onChange={this.changeOfEmployeeForm}>{companyFormSelect}</select>
 							<br/>
 							<button type="submit">Add Employee</button>					
 						</form>
