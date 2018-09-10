@@ -96,43 +96,53 @@ class HomePage extends Component {
 		return (
 			<React.Fragment>
 				<div className="home__wrapper">
-					<div className="home__abacus">
-						<button onClick={clearDirectory}>
-							reset directory test
-						</button>
-						<button onClick={deleteCompany}>
-							remove last company test
-						</button>
+					<div className="home__widget">
+						<div className="home__heading">Companies</div>
+						{companyDirectory}
+						<div>
+							<button onClick={clearDirectory}>
+								reset directory test
+							</button>
+							<br/>
+							<button onClick={deleteCompany}>
+								remove last company test
+							</button>
+						</div>
 					</div>
 					<div>
-						{companyDirectory}
-						<form onSubmit={this.submitForm}>
-							<label>Company Name:</label>
-							<input type="text" name="name" onChange={this.changeOfForm} value={this.state.companyToAdd.name}/>
-							<br/>
-							<label>Address:</label>
-							<input type="text" name="address" onChange={this.changeOfForm} value={this.state.companyToAdd.address}/>
-							<br/>
-							<label>Revenue:</label>
-							<input type="text" name="revenue" onChange={this.changeOfForm} value={this.state.companyToAdd.revenue}/>
-							<br/>
-							<label>Phone: </label>
-							<input type="text" name="phoneNumber" onChange={this.changeOfForm} value={this.state.companyToAdd.phoneNumber}/>	
-							<br/>
-							<button type="submit">Add Company</button>					
-						</form>
-						<form onSubmit={this.submitEmployee}>
-							<label>Employee Name:</label>
-							<input type="text" name="name" onChange={this.changeOfEmployeeForm} value={this.state.employeeToAdd.name}/>
-							<br/>
-							<label>Address:</label>
-							<input type="text" name="address" onChange={this.changeOfEmployeeForm} value={this.state.employeeToAdd.address}/>
-							<br/>
-							<label>Choose Employer</label>
-							<select name="employerIndex" onChange={this.changeOfEmployeeForm}>{companyFormSelect}</select>
-							<br/>
-							<button type="submit">Add Employee</button>					
-						</form>
+						<div className="home__widget">
+							<div className="home__heading">Create new Company</div>
+							<form onSubmit={this.submitForm}>
+								<label>Company Name:</label>
+								<input type="text" name="name" onChange={this.changeOfForm} value={this.state.companyToAdd.name}/>
+								<br/>
+								<label>Address:</label>
+								<input type="text" name="address" onChange={this.changeOfForm} value={this.state.companyToAdd.address}/>
+								<br/>
+								<label>Revenue:</label>
+								<input type="text" name="revenue" onChange={this.changeOfForm} value={this.state.companyToAdd.revenue}/>
+								<br/>
+								<label>Phone: </label>
+								<input type="text" name="phoneNumber" onChange={this.changeOfForm} value={this.state.companyToAdd.phoneNumber}/>	
+								<br/>
+								<button type="submit">Add Company</button>					
+							</form>
+						</div>
+						<div className="home__widget">
+						<div className="home__heading">Create new Person</div>
+							<form onSubmit={this.submitEmployee}>
+								<label>Employee Name:</label>
+								<input type="text" name="name" onChange={this.changeOfEmployeeForm} value={this.state.employeeToAdd.name}/>
+								<br/>
+								<label>Address:</label>
+								<input type="text" name="address" onChange={this.changeOfEmployeeForm} value={this.state.employeeToAdd.address}/>
+								<br/>
+								<label>Choose Employer</label>
+								<select name="employerIndex" onChange={this.changeOfEmployeeForm}>{companyFormSelect}</select>
+								<br/>
+								<button type="submit">Add Employee</button>					
+							</form>
+						</div>
 					</div>
 				</div>
 			</React.Fragment>
