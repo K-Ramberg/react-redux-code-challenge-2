@@ -14,7 +14,8 @@ const initialState = {
 
 const addCompanyToDirectory = (state, payload) => {
   const companies = [...state.companies]
-   companies.push(state.companyToAdd)
+   companies.push(payload)
+   console.log(payload)
   return {
     ...state,
     companies
@@ -36,7 +37,18 @@ const clearAllFromDirectory = (state, payload) => {
   }
 }
 
-
+// const changingForm = (state, payload) => {
+//   // const inputName = event.target.name
+//   //       const formInput = event.target.value
+//   //       const newState = {...this.state}
+//   //       newState.companyToAdd[inputName] = formInput
+//   //       this.setState(newState)
+//     const companyToAdd = 
+//   return {
+//     ...state,
+//     companyToAdd
+//   }
+// }
 
 const actionMap = {
   [types.ADD_COMPANY]: addCompanyToDirectory,

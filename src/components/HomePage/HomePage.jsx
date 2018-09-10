@@ -41,14 +41,21 @@ class HomePage extends Component {
 	submitForm(event) {
 		event.preventDefault()
 		const newCompany = {...this.state.companyToAdd}
-		this.props.addCompany(newCompany)
+		 this.props.addCompany(newCompany)
+		 this.setState({ companyToAdd: {
+			name: '',
+			address: '',
+			revenue: '',
+			phoneNumber: '',
+			employees: []  
+		 }})
 	}
 	
 
 	render() {
 		const {	increment, decrement, resetNumberToZero, addCompany, deleteCompany, clearDirectory } = this.props;
-		console.log(this.props)
-		console.log(this.state)
+		 console.log(this.props)
+		// console.log(this.state)
 		const companyDirectory = this.props.companies.map((each,i)=>{
 			return (
 				<div key={i}> 
@@ -72,7 +79,7 @@ class HomePage extends Component {
 						<button	onClick={resetNumberToZero}>
 							Reset Number
 						</button>
-						<button onClick={addCompany}>
+						<button onClick={() => addCompany(this.state.companyToAdd)}>
 							add company test
 						</button>
 						<button onClick={clearDirectory}>
@@ -87,16 +94,16 @@ class HomePage extends Component {
 						{companyDirectory}
 						<form onSubmit={this.submitForm}>
 							<label>Company Name:</label>
-							<input type="text" name="name" onChange={this.changeOfForm} value={this.props.companyToAdd.name}/>
+							<input type="text" name="name" onChange={this.changeOfForm} value={this.state.companyToAdd.name}/>
 							<br/>
 							<label>Address:</label>
-							<input type="text" name="address" onChange={this.changeOfForm} value={this.props.companyToAdd.address}/>
+							<input type="text" name="address" onChange={this.changeOfForm} value={this.state.companyToAdd.address}/>
 							<br/>
 							<label>Revenue:</label>
-							<input type="text" name="revenue" onChange={this.changeOfForm} value={this.props.companyToAdd.revenue}/>
+							<input type="text" name="revenue" onChange={this.changeOfForm} value={this.state.companyToAdd.revenue}/>
 							<br/>
 							<label>Phone: </label>
-							<input type="text" name="phoneNumber" onChange={this.changeOfForm} value={this.props.companyToAdd.phoneNumber}/>	
+							<input type="text" name="phoneNumber" onChange={this.changeOfForm} value={this.state.companyToAdd.phoneNumber}/>	
 							<br/>
 							<button type="submit">Add Company</button>					
 						</form>

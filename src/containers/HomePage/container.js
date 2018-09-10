@@ -7,7 +7,7 @@ const mapDispatchToProps = dispatch => ({
 	increment: () => dispatch(actions.incrementBy1()),
 	decrement: () => dispatch(actions.decrementBy1()),
 	resetNumberToZero: () => dispatch(actions.resetNumberToZero()),
-	addCompany: () => dispatch(actions1.addCompany()),
+	addCompany: (payload) => dispatch(actions1.addCompany(payload)),
 	deleteCompany: () => dispatch(actions1.deleteCompany()),
 	clearDirectory: () => dispatch(actions1.clearDirectory())
 });
