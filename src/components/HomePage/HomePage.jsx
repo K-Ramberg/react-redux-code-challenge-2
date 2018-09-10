@@ -21,17 +21,22 @@ class HomePage extends Component {
 			companyToAdd: {
 				name: '',
 				address: '',
-				revenue: 0,
-				phoneNumber: 0,
+				revenue: '',
+				phoneNumber: '',
 				employees: []  
 			}
 		}
 		this.changeOfForm = this.changeOfForm.bind(this)
+		this.submitForm = this.submitForm.bind(this)
 	}	
 
 	changeOfForm(event) {
-		this.setState({ [event.target.name]: event.target.value })
-	}
+		const inputName = event.target.name
+        const formInput = event.target.value
+        const newState = {...this.state}
+        newState.companyToAdd[inputName] = formInput
+        this.setState(newState)
+    }
 
 	submitForm(event) {
 		event.preventDefault()
@@ -43,6 +48,7 @@ class HomePage extends Component {
 	render() {
 		const {	increment, decrement, resetNumberToZero, addCompany, deleteCompany, clearDirectory } = this.props;
 		console.log(this.props)
+		console.log(this.state)
 		const companyDirectory = this.props.companies.map((each,i)=>{
 			return (
 				<div key={i}> 
@@ -79,7 +85,21 @@ class HomePage extends Component {
 					<div>
 						Code for Homepage goes here!
 						{companyDirectory}
-						<form action=""></form>
+						<form onSubmit={this.submitForm}>
+							<label>Company Name:</label>
+							<input type="text" name="name" onChange={this.changeOfForm} value={this.props.companyToAdd.name}/>
+							<br/>
+							<label>Address:</label>
+							<input type="text" name="address" onChange={this.changeOfForm} value={this.props.companyToAdd.address}/>
+							<br/>
+							<label>Revenue:</label>
+							<input type="text" name="revenue" onChange={this.changeOfForm} value={this.props.companyToAdd.revenue}/>
+							<br/>
+							<label>Phone: </label>
+							<input type="text" name="phoneNumber" onChange={this.changeOfForm} value={this.props.companyToAdd.phoneNumber}/>	
+							<br/>
+							<button type="submit">Add Company</button>					
+						</form>
 					</div>
 				</div>
 			</React.Fragment>

@@ -36,6 +36,8 @@ const clearAllFromDirectory = (state, payload) => {
   }
 }
 
+
+
 const actionMap = {
   [types.ADD_COMPANY]: addCompanyToDirectory,
   [types.DELETE_COMPANY]: removeCompanyFromDirectory,
