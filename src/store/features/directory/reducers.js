@@ -2,8 +2,14 @@ import types from './types';
 import { createDefaultReducer } from '../../helpers'
 
 const initialState = {
-  companies: ['22', '44', 'fake company'],
-  companyToAdd: {name: 'i am a place holder'}
+  companies: [],
+  companyToAdd: {
+    name: 'i am a place holder',
+    address: 'this is where its at',
+    revenue: 100000,
+    phoneNumber: 4048675309,
+    employees: []  
+  }
 };
 
 const addCompanyToDirectory = (state, payload) => {

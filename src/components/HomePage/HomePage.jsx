@@ -14,12 +14,43 @@ const propTypes = {
 };
 
 class HomePage extends Component {
+
+	constructor(props) {
+		super(props)
+		this.state = {
+			companyToAdd: {
+				name: '',
+				address: '',
+				revenue: 0,
+				phoneNumber: 0,
+				employees: []  
+			}
+		}
+		this.changeOfForm = this.changeOfForm.bind(this)
+	}	
+
+	changeOfForm(event) {
+		this.setState({ [event.target.name]: event.target.value })
+	}
+
+	submitForm(event) {
+		event.preventDefault()
+		const newCompany = {...this.state.companyToAdd}
+		this.props.addCompany(newCompany)
+	}
+	
+
 	render() {
 		const {	increment, decrement, resetNumberToZero, addCompany, deleteCompany, clearDirectory } = this.props;
 		console.log(this.props)
 		const companyDirectory = this.props.companies.map((each,i)=>{
 			return (
-				<div key={i}>company placeholder</div>
+				<div key={i}> 
+					<h3>{each.name}</h3>
+					<h5>Address: {each.address}</h5>
+					<h5>Revenue: {each.revenue}</h5>
+					<h5>Phone: {each.phoneNumber}</h5>
+				</div>
 			)
 		})
 		return (
@@ -48,6 +79,7 @@ class HomePage extends Component {
 					<div>
 						Code for Homepage goes here!
 						{companyDirectory}
+						<form action=""></form>
 					</div>
 				</div>
 			</React.Fragment>
