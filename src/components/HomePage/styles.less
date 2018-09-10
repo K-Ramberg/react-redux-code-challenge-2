@@ -6,8 +6,8 @@
     justify-content: space-around;
   }
   &__widget{
-    border: 1px solid rgb(212, 206, 206);
-    border-radius: 2%;
+    border: 1px solid rgb(209, 209, 209);
+    border-radius: 5px;
     margin-top: 4vh;
     display: flex;
     align-content: stretch;
@@ -15,9 +15,49 @@
     color: rgb(131, 130, 130);
   }
   &__heading{
-    border-bottom: 1px solid rgb(212, 206, 206);
+    border-bottom: 1px solid rgb(209, 209, 209);
     padding: 1.5vh 0;
     font-size: 1rem;
-    text-indent: 3vw;
+    text-indent: 1.5vw;
+  }
+  &__main{
+    width: 60%;
+  }
+  &__side{
+    max-width: 30%;
+  }
+}
+
+.company {
+  &__card{
+    border: 1px solid rgb(168, 168, 168);
+    border-radius: 5px;
+    margin: 2vw;
+    text-indent: 1vw;
+  }
+  &__end{
+    background: rgb(223, 223, 223);
+    color: rgb(88, 153, 223);
+    padding: 0.5vh 0;
+    font-weight: 600;
+  }
+  &__top{
+    border-radius: 4px 4px 0 0;
+    border-bottom: 1px solid rgb(207, 207, 207)
+  } 
+  &__bottom {
+    border-radius: 0 0 4px 4px;
+    border-top: 1px solid rgb(200, 200, 200);
+    margin-top: 3vh;
+    a {
+      color:rgb(88, 153, 223);
+      font-weight: 500;
+    }
+  }
+  &__label{
+    color: rgb(85, 85, 85);
+    font-weight: 700;
+    margin: 0.5vh 0;
+
   }
 }

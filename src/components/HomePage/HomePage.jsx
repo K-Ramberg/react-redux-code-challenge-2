@@ -79,12 +79,15 @@ class HomePage extends Component {
 		const {	deleteCompany, clearDirectory } = this.props;
 		const companyDirectory = this.props.companies.map((each,i)=>{
 			return (
-				<div key={i}> 
-					<h3>{each.name}</h3>
-					<h5>Address: {each.address}</h5>
-					<h5>Revenue: {each.revenue}</h5>
-					<h5>Phone: {each.phoneNumber}</h5>
-					<Link to={`/${i}`}>See Details</Link>
+				<div className="company__card" key={i}> 
+					<div className="company__end company__top">{each.name}</div>
+					<div className="company__label">Address:</div>
+					<div className="company__info">{each.address}</div>
+					<div className="company__label">Revenue:</div>
+					<div className="company__info">{each.revenue}</div>
+					<div className="company__label">Phone:</div>
+					<div className="company__info">{each.phoneNumber}</div>
+					<div className="company__end company__bottom"><Link className="link" to={`/${i}`}>Company Overview</Link></div>
 				</div>
 			)
 		})
@@ -96,7 +99,7 @@ class HomePage extends Component {
 		return (
 			<React.Fragment>
 				<div className="home__wrapper">
-					<div className="home__widget">
+					<div className="home__widget home__main">
 						<div className="home__heading">Companies</div>
 						{companyDirectory}
 						<div>
@@ -109,7 +112,7 @@ class HomePage extends Component {
 							</button>
 						</div>
 					</div>
-					<div>
+					<div className="home__side">
 						<div className="home__widget">
 							<div className="home__heading">Create new Company</div>
 							<form onSubmit={this.submitForm}>
