@@ -32,7 +32,7 @@
     width: 60%;
   }
   &__side{
-    max-width: 30%;
+    width: 30%;
   }
 }
 
@@ -62,10 +62,30 @@
       font-weight: 500;
     }
   }
-  &__label{
+  &__type{
     color: rgb(85, 85, 85);
     font-weight: 700;
     margin: 0.5vh 0;
+  }
+}
 
+.form{
+  &__wrapper{
+    input, select{
+      border-radius: 3px;
+      margin-left: 2vw;
+      margin-bottom: 1vh;
+      width: 80%;
+      height: 3vh;
+    }
+    label{
+      display: block;
+      margin-left: 2vw;
+      margin-top: 1vh;
+    }
+  }
+  &__dropdown{
+    background:linear-gradient(rgb(229, 229, 229), rgb(216, 216, 216), rgb( 200, 200, 200));
+    color: rgb(114,114, 114);
   }
 }

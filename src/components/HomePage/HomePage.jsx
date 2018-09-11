@@ -81,11 +81,11 @@ class HomePage extends Component {
 			return (
 				<div className="company__card" key={i}> 
 					<div className="company__end company__top">{each.name}</div>
-					<div className="company__label">Address:</div>
+					<div className="company__type">Address:</div>
 					<div className="company__info">{each.address}</div>
-					<div className="company__label">Revenue:</div>
+					<div className="company__type">Revenue:</div>
 					<div className="company__info">{each.revenue}</div>
-					<div className="company__label">Phone:</div>
+					<div className="company__type">Phone:</div>
 					<div className="company__info">{each.phoneNumber}</div>
 					<div className="company__end company__bottom"><Link className="link" to={`/${i}`}>Company Overview</Link></div>
 				</div>
@@ -115,8 +115,8 @@ class HomePage extends Component {
 					<div className="home__side">
 						<div className="home__widget">
 							<div className="home__heading">Create new Company</div>
-							<form onSubmit={this.submitForm}>
-								<label>Company Name:</label>
+							<form className="form__wrapper" onSubmit={this.submitForm}>
+								<label>Name:</label>
 								<input type="text" name="name" onChange={this.changeOfForm} value={this.state.companyToAdd.name}/>
 								<br/>
 								<label>Address:</label>
@@ -133,15 +133,15 @@ class HomePage extends Component {
 						</div>
 						<div className="home__widget">
 						<div className="home__heading">Create new Person</div>
-							<form onSubmit={this.submitEmployee}>
-								<label>Employee Name:</label>
+							<form className="form__wrapper" onSubmit={this.submitEmployee}>
+								<label>Name:</label>
 								<input type="text" name="name" onChange={this.changeOfEmployeeForm} value={this.state.employeeToAdd.name}/>
 								<br/>
 								<label>Address:</label>
 								<input type="text" name="address" onChange={this.changeOfEmployeeForm} value={this.state.employeeToAdd.address}/>
 								<br/>
-								<label>Choose Employer</label>
-								<select name="employerIndex" onChange={this.changeOfEmployeeForm}>{companyFormSelect}</select>
+								<label>Select Employer</label>
+								<select className="form__dropdown" name="employerIndex" onChange={this.changeOfEmployeeForm}>{companyFormSelect}</select>
 								<br/>
 								<button type="submit">Save</button>					
 							</form>
