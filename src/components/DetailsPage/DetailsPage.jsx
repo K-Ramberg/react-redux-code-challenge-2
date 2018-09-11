@@ -11,7 +11,14 @@ function DetailsPage(props) {
   const thisCompany = props.companies[rightID]
   const employees = thisCompany.employees.map((each, i) => {
     return (
-      <div key={i}>{each.name}</div>
+      <div className="company__card" key={i}>
+        <div className="company__end company__top company__top_small">{each.name}</div>
+        <div className="company__indent">
+          <div className="company__type"> Address:</div>
+          <div classname="company__info">{each.address}</div>
+        </div> 
+        <div className="company__bottom"></div>
+      </div>
     )
   })
   return (
@@ -34,7 +41,10 @@ function DetailsPage(props) {
           </div>
         <div className="company__bottom"></div>
       </div>
-      <div>{employees}</div>
+      <div className="company__card">
+      <div className="company__end company__top company__top_plus">Employees</div>
+        {employees}
+      </div>
     </div>
   );
 }
