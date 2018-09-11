@@ -29,13 +29,13 @@ class HomePage extends Component {
 				employerIndex: 0
 			}
 		}
-		this.changeOfForm = this.changeOfForm.bind(this)
-		this.submitForm = this.submitForm.bind(this)
+		this.changeOfCompanyForm = this.changeOfCompanyForm.bind(this)
+		this.submitCompany = this.submitCompany.bind(this)
 		this.changeOfEmployeeForm = this.changeOfEmployeeForm.bind(this)
 		this.submitEmployee = this.submitEmployee.bind(this)
 	}	
 
-	changeOfForm(event) {
+	changeOfCompanyForm(event) {
 		const inputName = event.target.name
         const formInput = event.target.value
         const newState = {...this.state}
@@ -43,7 +43,7 @@ class HomePage extends Component {
         this.setState(newState)
     }
 
-	submitForm(event) {
+	submitCompany(event) {
 		event.preventDefault()
 		const newCompany = {...this.state.companyToAdd}
 		 this.props.addCompany(newCompany)
@@ -107,7 +107,7 @@ class HomePage extends Component {
 				)
 			}
 
-		const companyFormSelect = this.props.companies.map((each,i)=>{
+		const companySelect = this.props.companies.map((each,i)=>{
 			return (
 				<option key={i} value={i}>{each.name}</option>
 			)
@@ -125,7 +125,7 @@ class HomePage extends Component {
 								<input type="text" name="address" onChange={this.changeOfEmployeeForm} value={this.state.employeeToAdd.address}/>
 								<br/>
 								<label>Select Employer</label>
-								<select className="form__dropdown" name="employerIndex" onChange={this.changeOfEmployeeForm}>{companyFormSelect}</select>
+								<select className="form__dropdown" name="employerIndex" onChange={this.changeOfEmployeeForm}>{companySelect}</select>
 								<br/>
 								<button type="submit">Save</button>					
 							</form>
@@ -147,18 +147,18 @@ class HomePage extends Component {
 					<div className="home__side">
 						<div className="home__widget">
 							<div className="home__heading">Create new Company</div>
-							<form className="form__wrapper" onSubmit={this.submitForm}>
+							<form className="form__wrapper" onSubmit={this.submitCompany}>
 								<label>Name:</label>
-								<input type="text" name="name" onChange={this.changeOfForm} value={this.state.companyToAdd.name}/>
+								<input type="text" name="name" onChange={this.changeOfCompanyForm} value={this.state.companyToAdd.name}/>
 								<br/>
 								<label>Address:</label>
-								<input type="text" name="address" onChange={this.changeOfForm} value={this.state.companyToAdd.address}/>
+								<input type="text" name="address" onChange={this.changeOfCompanyForm} value={this.state.companyToAdd.address}/>
 								<br/>
 								<label>Revenue:</label>
-								<input type="text" name="revenue" onChange={this.changeOfForm} value={this.state.companyToAdd.revenue}/>
+								<input type="text" name="revenue" onChange={this.changeOfCompanyForm} value={this.state.companyToAdd.revenue}/>
 								<br/>
 								<label>Phone: </label>
-								<input type="text" name="phoneNumber" onChange={this.changeOfForm} value={this.state.companyToAdd.phoneNumber}/>	
+								<input type="text" name="phoneNumber" onChange={this.changeOfCompanyForm} value={this.state.companyToAdd.phoneNumber}/>	
 								<br/>
 								<button type="submit">Save</button>					
 							</form>
