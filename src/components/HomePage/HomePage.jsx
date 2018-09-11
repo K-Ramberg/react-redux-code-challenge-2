@@ -107,13 +107,36 @@ class HomePage extends Component {
 				)
 			}
 
-		const companyCheck = this.props.companies.length > 0 ? companiesClearOut() : "There are currently no companies to review"
-
 		const companyFormSelect = this.props.companies.map((each,i)=>{
 			return (
 				<option key={i} value={i}>{each.name}</option>
 			)
-		})
+		})	
+
+		const personCreator = () => {
+			return (
+				<div className="home__widget">
+						<div className="home__heading">Create new Person</div>
+							<form className="form__wrapper" onSubmit={this.submitEmployee}>
+								<label>Name:</label>
+								<input type="text" name="name" onChange={this.changeOfEmployeeForm} value={this.state.employeeToAdd.name}/>
+								<br/>
+								<label>Address:</label>
+								<input type="text" name="address" onChange={this.changeOfEmployeeForm} value={this.state.employeeToAdd.address}/>
+								<br/>
+								<label>Select Employer</label>
+								<select className="form__dropdown" name="employerIndex" onChange={this.changeOfEmployeeForm}>{companyFormSelect}</select>
+								<br/>
+								<button type="submit">Save</button>					
+							</form>
+						</div>
+			)
+		}
+
+		const companyCheck = this.props.companies.length > 0 ? companiesClearOut() : "There are currently no companies to review"
+
+		const employeeHider = this.props.companies.length > 0 ? personCreator() : null
+
 		return (
 			<React.Fragment>
 				<div className="home__wrapper">
@@ -140,21 +163,7 @@ class HomePage extends Component {
 								<button type="submit">Save</button>					
 							</form>
 						</div>
-						<div className="home__widget">
-						<div className="home__heading">Create new Person</div>
-							<form className="form__wrapper" onSubmit={this.submitEmployee}>
-								<label>Name:</label>
-								<input type="text" name="name" onChange={this.changeOfEmployeeForm} value={this.state.employeeToAdd.name}/>
-								<br/>
-								<label>Address:</label>
-								<input type="text" name="address" onChange={this.changeOfEmployeeForm} value={this.state.employeeToAdd.address}/>
-								<br/>
-								<label>Select Employer</label>
-								<select className="form__dropdown" name="employerIndex" onChange={this.changeOfEmployeeForm}>{companyFormSelect}</select>
-								<br/>
-								<button type="submit">Save</button>					
-							</form>
-						</div>
+						{employeeHider}
 					</div>
 				</div>
 			</React.Fragment>
