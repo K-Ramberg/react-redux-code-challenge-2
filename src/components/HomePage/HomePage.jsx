@@ -45,10 +45,6 @@ class HomePage extends Component {
 
 	submitCompany(event) {
 		const newComp = {...this.state.companyToAdd}
-		if(newComp.name.length > 1 && typeof(newComp.name) === "string" && 
-			newComp.address.length > 1 &&
-			newComp.revenue.length > 1 &&
-			newComp.phoneNumber.length > 1){
 		event.preventDefault()
 		 this.props.addCompany(newComp)
 		 this.setState({ companyToAdd: {
@@ -58,7 +54,6 @@ class HomePage extends Component {
 			phoneNumber: '',
 			employees: []  
 		 }})
-		} else { this.setState(this.state)}
 	}
 
 	changeOfEmployeeForm(event) {
