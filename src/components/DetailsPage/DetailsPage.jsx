@@ -1,29 +1,39 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './styles.less'
 
 const propTypes = {
-	companies: PropTypes.array.isRequired
+  companies: PropTypes.array.isRequired
 };
 
 function DetailsPage(props) {
-   const rightID = Number(props.match.params.id)
-   const thisCompany = props.companies[rightID]
-   const employees = thisCompany.employees.map((each,i)=> {
-     return (
-       <div key={i}>{each.name}</div>
-     )
-   })
+  const rightID = Number(props.match.params.id)
+  const thisCompany = props.companies[rightID]
+  const employees = thisCompany.employees.map((each, i) => {
+    return (
+      <div key={i}>{each.name}</div>
+    )
+  })
   return (
-    <div>Code for the Details Page goes here
-      <h1>{thisCompany.name}</h1>
-      <h4> Address:</h4>
-      <div>{thisCompany.address}</div>
-      <h4>Revenue:</h4>
-      <div>{thisCompany.revenue}</div>
-      <h4>Phone:</h4>
-      <div>{thisCompany.phoneNumber}</div>
-      <h4>Total Employees: </h4>
-      <div>{thisCompany.employees.length}</div>
+    <div className="home__mid">
+      <div className="company__card">
+        <div className="company__end company__top">Profile Overview</div>
+          <div className="company__stagger">
+            <div>
+              <div className="company__type"> Address:</div>
+              <div classname="company__info">{thisCompany.address}</div>
+              <div className="company__type">Revenue:</div>
+              <div className="company__info">{thisCompany.revenue}</div>
+              <div className="company__type">Phone:</div>
+              <div className="company__info">{thisCompany.phoneNumber}</div>
+            </div>
+            <div>
+              <div className="company__type">Total Employees: </div>
+              <div className="company__info">{thisCompany.employees.length}</div>
+            </div>
+          </div>
+        <div className="company__bottom"></div>
+      </div>
       <div>{employees}</div>
     </div>
   );
