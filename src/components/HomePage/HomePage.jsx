@@ -44,9 +44,13 @@ class HomePage extends Component {
     }
 
 	submitCompany(event) {
+		const newComp = {...this.state.companyToAdd}
+		if(newComp.name.length > 1 && typeof(newComp.name) === "string" && 
+			newComp.address.length > 1 &&
+			newComp.revenue.length > 1 &&
+			newComp.phoneNumber.length > 1){
 		event.preventDefault()
-		const newCompany = {...this.state.companyToAdd}
-		 this.props.addCompany(newCompany)
+		 this.props.addCompany(newComp)
 		 this.setState({ companyToAdd: {
 			name: '',
 			address: '',
@@ -54,6 +58,7 @@ class HomePage extends Component {
 			phoneNumber: '',
 			employees: []  
 		 }})
+		} else { this.setState(this.state)}
 	}
 
 	changeOfEmployeeForm(event) {
@@ -65,8 +70,8 @@ class HomePage extends Component {
     }
 	
 	submitEmployee(event) {
-		event.preventDefault()
 		const newEmployee = {...this.state.employeeToAdd}
+		event.preventDefault()
 		this.props.addEmployee(newEmployee)
 		this.setState({ employeeToAdd: {
 			name: '',
@@ -155,7 +160,7 @@ class HomePage extends Component {
 								<input type="text" name="address" onChange={this.changeOfCompanyForm} value={this.state.companyToAdd.address}/>
 								<br/>
 								<label>Revenue:</label>
-								<input type="text" name="revenue" onChange={this.changeOfCompanyForm} value={this.state.companyToAdd.revenue}/>
+								<input type="number" name="revenue" onChange={this.changeOfCompanyForm} value={this.state.companyToAdd.revenue}/>
 								<br/>
 								<label>Phone: </label>
 								<input type="text" name="phoneNumber" onChange={this.changeOfCompanyForm} value={this.state.companyToAdd.phoneNumber}/>	
