@@ -14,9 +14,9 @@ This assessment was my first indepth, hands-on undertaking with Redux. Additiona
 ##### Losses
 - For fear of time, I didn't create a seperate, reusable form component with reusable submit functions. 
 - I was not able to complete the form Validations
-- I did not spend enough time on the {less} document stylings to exploit the efficiency opportunities it offers
+- I did not spend enough time on the {less} document stylings to exploit the efficiency opportunities it offers.
 
 #### Final Thoughts
 
 Ultimately, working on this assignment has been tremedously beneficial. I have gained significant knowledge with Redux functions. This particular setup opened my eyes to new ways state components can be made more efficient (especially abandoning the typical Redux Types switch statements for a reusable default reducer and map of the Types). 
-Adittioanlly, I got my first experience with {less} for CSS. In this assignment, I used some of the basic less functioanlity and often opted for more traditional CSS practices for the sake fo time; but I am now very much interested to take a deeper look at the efficiency {less} can offer with reusable style variables and functions. 
+Adittionally, I got my first experience with {less} for CSS. In this assignment, I used some of the basic less functioanlity and often opted for more traditional CSS practices for the sake fo time; but I am now very much interested to take a deeper look at the efficiency {less} can offer with reusable style variables and functions. 
