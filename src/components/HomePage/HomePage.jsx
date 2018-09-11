@@ -91,6 +91,24 @@ class HomePage extends Component {
 				</div>
 			)
 		})
+
+		const companiesClearOut = () => {
+			return(
+					<div>
+						{companyDirectory}
+						<button onClick={deleteCompany}>
+							Undo Previous Company
+						</button>
+						<br/>
+						<button onClick={clearDirectory}>
+							Clear Directory
+						</button>
+					</div>
+				)
+			}
+
+		const companyCheck = this.props.companies.length > 0 ? companiesClearOut() : "There are currently no companies to review"
+
 		const companyFormSelect = this.props.companies.map((each,i)=>{
 			return (
 				<option key={i} value={i}>{each.name}</option>
@@ -101,16 +119,7 @@ class HomePage extends Component {
 				<div className="home__wrapper">
 					<div className="home__widget home__main">
 						<div className="home__heading">Companies</div>
-						{companyDirectory}
-						<div>
-							<button onClick={clearDirectory}>
-								Clear Directory
-							</button>
-							<br/>
-							<button onClick={deleteCompany}>
-								Undo Previous Company
-							</button>
-						</div>
+						{companyCheck}
 					</div>
 					<div className="home__side">
 						<div className="home__widget">
